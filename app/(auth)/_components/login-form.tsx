@@ -21,8 +21,15 @@ import { Button } from "@/components/ui/button";
 import { FormError } from "./form-error";
 import { FormSuccess } from "./form-success";
 import { login } from "@/actions/login";
+import { useSearchParams } from "next/navigation";
 
 export const LoginForm = () => {
+  const searhParams = useSearchParams();
+  const urlError =
+    searhParams.get("error") === "OAuthAccountNotLinked"
+      ? "You already have an account with this email."
+      : undefined;
+
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -41,8 +48,8 @@ export const LoginForm = () => {
 
     startTransition(() => {
       login(values).then((data) => {
-        setErrorString(data.error);
-        setSuccessString(data.success);
+        setErrorString(data?.error);
+        setSuccessString(data?.success);
       });
     });
   };
@@ -92,7 +99,7 @@ export const LoginForm = () => {
               </FormItem>
             )}
           />
-          <FormError message={errorString || ""} />
+          <FormError message={errorString || urlError || ""} />
           <FormSuccess message={successString || ""} />
           <Button
             type="submit"
