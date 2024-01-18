@@ -26,6 +26,7 @@ model User {
   image         String?
   role          Role      @default(USER)
   accounts      Account[]
+  organization  UserOrganization[]
 }
 
 model Account {
@@ -45,4 +46,19 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+}
+
+model Organization {
+  id        String  @id @default(cuid())
+  name      String
+  users     UserOrganization[]
+}
+
+model UserOrganization {
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  organizationId String
+  organization  Organization @relation(fields: [organizationId], references: [id])
+
+  @@id([userId, organizationId])
 }

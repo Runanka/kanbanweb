@@ -4,7 +4,11 @@ import { DM_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 
-const dmMono = DM_Mono({ weight: "400", subsets: ["latin"] });
+const dmMono = DM_Mono({
+  weight: ["300", "400", "500"],
+
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -12,12 +16,12 @@ export const metadata: Metadata = {
     template: `%s | $(siteConfig.title)`,
   },
   description: siteConfig.description,
-  icons:[
+  icons: [
     {
-      url:"/logo.svg",
-      href:"/logo.svg",
-    }
-  ]
+      url: "/logo.svg",
+      href: "/logo.svg",
+    },
+  ],
 };
 
 export default function RootLayout({
