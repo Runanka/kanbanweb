@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KanbanWeb
+## _A web based Kanban boards_
 
-## Getting Started
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
-First, run the development server:
 
-```bash
+## Description
+KanbanWeb is a collaborative, web-based kanban board application. It's mobile-friendly and built with Next.js, React, and Tailwind CSS on the frontend, and Prisma and PostgreSQL on the backend.
+
+## Features
+
+- **User Authentication**: Users can sign up and log in using their email and password, or their Google, GitHub, or Discord account.
+- **Organization Management**: Users can create new organizations and join existing ones.
+- **Board Management**: Organizations can create multiple boards. Each board has a name and a color. 
+- **Collaboration**: Boards can be shared among users within the same organization. 
+- **Database**: The application uses Prisma as a database client, with the database hosted on Neon.tech.
+
+## Installation
+
+1. Clone the repository.
+2. Run `npm install` to install the dependencies.
+3. Set up the environment variables in a `.env` file based on the below `example` file.
+4. Run `npm run dev` to start the app in development mode.
+
+```sh
+git clone https://github.com/Runanka/kanbanweb.git
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To set up the environment variables, create a `.env.local` file in the root directory of the project and add the following variables:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```properties
+# Database connection strings for Prisma
+DATABASE_URL='<database_url>'
+DIRECT_URL='<database_url>'
 
-## Learn More
+# Auth0 secret
+AUTH_SECRET='<auth0_secret>'
 
-To learn more about Next.js, take a look at the following resources:
+# GitHub OAuth credentials
+GITHUB_ID='<github_client_id>'
+GITHUB_SECRET='<github_client_secret>'
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Google OAuth credentials
+GOOGLE_ID='<google_client_id>'
+GOOGLE_SECRET='<google_client_secret>'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Discord OAuth credentials
+DISCORD_ID='<discord_client_id>'
+DISCORD_SECRET='<discord_client_secret>'
+```
 
-## Deploy on Vercel
+To set up the database with postgres, generate the db using prisma and then push it:
+```sh
+npx prisma generate
+npx primsa db push
+npx prisma studio
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Below is the tabular representation of the schema:
+https://imgur.com/a/wzbiYKF
+![Schema](https://i.imgur.com/3m101ci.png "Schema")
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## License
+
+This project is licensed under the MIT License.
