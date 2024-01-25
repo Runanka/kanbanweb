@@ -1,9 +1,8 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { FaDiscord } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { BsGithub } from "react-icons/bs";
+import { FaDiscord, FaGoogle } from "react-icons/fa";
+import { TbBrandGithubFilled } from "react-icons/tb";
 
 import { Button } from "@/components/ui/button";
 import { DEFAULT_LOGIN_REDIRECT } from "@/lib/routes";
@@ -15,14 +14,14 @@ export const Socials = () => {
 
   return (
     <div className="flex items-center w-full space-x-4 ">
-      <Button size="wide" onClick={() => onClick("google")}>
-        <FcGoogle className="size-8" />
+      <Button size="wide" variant="custom3" onClick={() => onClick("google")}>
+        <FaGoogle className="size-7 text-custom-gray" />
       </Button>
-      <Button size="wide" onClick={() => onClick("github")}>
-        <BsGithub className="size-8" />
+      <Button size="wide" variant="custom3" onClick={() => onClick("github")}>
+        <TbBrandGithubFilled className="size-7 text-custom-gray" />
       </Button>
-      <Button size="wide" onClick={() => onClick("discord")}>
-        <FaDiscord className="size-8" />
+      <Button size="wide" variant="custom3" onClick={() => onClick("discord")}>
+        <FaDiscord className="size-8 text-custom-gray" />
       </Button>
     </div>
   );

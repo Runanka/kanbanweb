@@ -68,13 +68,14 @@ export const LoginForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-custom-black/80">Email</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
                     placeholder="johndoe@example.com"
                     disabled={isPending}
+                    className="text-custom-black bg-custom-white border-custom-black border"
                   />
                 </FormControl>
                 <FormMessage />
@@ -86,13 +87,14 @@ export const LoginForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="text-custom-black/80">Password</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="password"
                     placeholder="******"
                     disabled={isPending}
+                    className="text-custom-black bg-custom-white border-custom-black border"
                   />
                 </FormControl>
                 <FormMessage />
@@ -104,7 +106,8 @@ export const LoginForm = () => {
           <Button
             type="submit"
             size="wide"
-            className="w-full"
+            variant="custom3"
+            className="w-full text-sm md:text-base"
             disabled={isPending}
           >
             Log In

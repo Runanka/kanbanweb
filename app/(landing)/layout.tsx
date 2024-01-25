@@ -3,9 +3,11 @@ import { MainNavbar } from "./_components/main-navbar";
 
 const LandingPageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex h-dvh w-screen bg-slate-100 items-center">
+    <div className="h-svh pt-14 pb-8 bg-gradient-to-br from-custom-black-2  via-custom-black-2-gradient to-custom-black-2">
       <MainNavbar />
-      <main className="pt-20 2xs:pt-12 sm:pb-28 bg-slate-100 ">{children}</main>
+      <main className="h-full flex items-start tall:items-center justify-center">
+        {children}
+      </main>
       <Footer />
     </div>
   );

@@ -52,3 +52,48 @@ export const getOrganization = async (organizationId: string) => {
 
   return organization;
 };
+
+export const getOrganizationData = async (userId: string) => {
+  const organizationData = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    select: {
+      organization: {
+        select: {
+          organization: {
+            select: {
+              id: true,
+              name: true,
+              users: {
+                select: {
+                  userId: true,
+                },
+              },
+              boards: {
+                select: {
+                  id: true,
+                  name: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+
+  const formattedOrganizationData = organizationData?.organization.map(
+    (org) => ({
+      id: org.organization.id,
+      name: org.organization.name,
+      users: org.organization.users.map((user) => ({ userId: user.userId })),
+      boards: org.organization.boards.map((board) => ({
+        id: board.id,
+        name: board.name,
+      })),
+    })
+  );
+
+  return formattedOrganizationData;
+};

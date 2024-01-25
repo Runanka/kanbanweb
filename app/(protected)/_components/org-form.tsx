@@ -32,7 +32,7 @@ export const OrgForm = ({
     },
   });
   return (
-    <div>
+    <div className="py-4">
       <Form {...orgForm}>
         <form onSubmit={orgForm.handleSubmit(formHandler)}>
           <FormField
@@ -41,24 +41,31 @@ export const OrgForm = ({
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
-                  <p className="text-start">Organization Name</p>
+                  <p className="text-start text-custom-black/80 text-sm md:text-base">
+                    Organization Name
+                  </p>
                 </FormLabel>
                 <FormControl>
-                  <Input {...field} type="text" placeholder="Google" />
+                  <Input
+                    {...field}
+                    type="text"
+                    className="bg-custom-white border-custom-black text-custom-black text-base md:text-lg"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
           <FormError message={errorString || ""} />
-          <div className="w-full flex justify-center sm:justify-end  py-8">
+          <div className="w-full  pt-4 flex">
             <Button
               type="submit"
               size="wide"
-              className="sm:max-w-48 "
+              variant="custom3"
+              className="max-w-32  text-base md:text-lg"
               disabled={isPending}
             >
-              <p>Create</p>
+              Create
             </Button>
           </div>
         </form>

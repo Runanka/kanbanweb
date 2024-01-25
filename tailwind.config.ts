@@ -52,6 +52,12 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "custom-black": "rgba(29, 29, 29, 1)",
+        "custom-black-2": "rgba(18, 18, 18, 1)",
+        "custom-black-2-gradient": "rgba(40,36,32,1)",
+        "custom-white": "rgba(226, 226, 226, 1)",
+        "custom-gray": "rgba(182, 179, 170, 1)",
+        "custom-gray-2": "rgba(111, 109, 104, 1)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -75,6 +81,9 @@ const config = {
       screens: {
         xs: "480px",
         "2xs": "360px",
+        tall: {
+          raw: "(min-height:600px)",
+        },
       },
     },
   },

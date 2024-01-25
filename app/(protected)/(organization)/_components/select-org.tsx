@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useParams, useRouter } from "next/navigation";
+import { OrgDropDown } from "../../_components/org-dropdown";
 
 interface SelectOrganizationProps {
   organizationsList: { name: string; id: string }[];
@@ -28,18 +29,7 @@ export const SelectOrganization = ({
 
   return (
     <div>
-      <Select onValueChange={onValChange} value={orgId}>
-        <SelectTrigger className="w-[100px] 2xs:w-[150px] md:w-[180px]">
-          <SelectValue placeholder="🏢 ORG" />
-        </SelectTrigger>
-        <SelectContent>
-          {organizationsList.map((org) => (
-            <SelectItem key={org.id} value={org.id}>
-              <span className="font-medium uppercase">{org.name}</span>
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+    <OrgDropDown orgList={organizationsList} onChangeHandler={onValChange} defaultValue={orgId}/>
     </div>
   );
 };

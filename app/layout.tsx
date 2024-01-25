@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Sono } from "next/font/google";
-import { DM_Mono } from "next/font/google";
+import { Glory } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 
-const dmMono = DM_Mono({
-  weight: ["300", "400", "500"],
 
+const glory = Glory({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });
 
@@ -31,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={dmMono.className}>{children}</body>
+      <body className={glory.className}>{children}</body>
     </html>
   );
 }

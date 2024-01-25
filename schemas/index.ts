@@ -18,3 +18,12 @@ export const OrgNameSchema = z.object({
     .string()
     .min(1, { message: "Organization name is required" }),
 });
+
+export const BoardNameSchema = z.object({
+  boardName: z.string().min(1, { message: "Board name is required" }),
+  boardColor: z
+    .string()
+    .regex(new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/), {
+      message: "Please enter a valid hex color",
+    }),
+});

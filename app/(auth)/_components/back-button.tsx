@@ -15,7 +15,7 @@ export const BackButton = ({
   return (
     <Button
       variant="link"
-      className="flex justify-center items-center w-full"
+      className="flex justify-center items-center w-full text-custom-black/80 text-sm md:text-base"
       asChild
     >
       <Link href={backButtonHref}>{backButtonLabel}</Link>
